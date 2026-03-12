@@ -1,39 +1,28 @@
-const CACHE_NAME = 'belote3-cache-v1';
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'belote3-v1';
+const ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './icons/icon-192.png', // Chemin corrigé pour correspondre à ton GitHub
-  './icons/icon-512.png'  // Chemin corrigé pour correspondre à ton GitHub
+  './icons/icon-192.png',
+  './icons/icon-512.png'
 ];
 
-// Installation du Service Worker et mise en cache des fichiers
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('Mise en cache des ressources');
-      return cache.addAll(ASSETS_TO_CACHE);
+      return cache.addAll(ASSETS);
     })
   );
 });
 
-// Activation et nettoyage des anciens caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            console.log('Nettoyage de l\'ancien cache');
-            return caches.delete(cache);
-          }
-        })
-      );
+    caches.keys().then((keys) => {
+      return Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)));
     })
   );
 });
 
-// Stratégie : Cache first, falling back to network
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
