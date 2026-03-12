@@ -1,6 +1,6 @@
 {
   "name": "Belote 3 joueurs",
-  "short_name": "Belote3joueurs",
+  "short_name": "Belote3",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#8f8d91",
@@ -9,12 +9,14 @@
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
