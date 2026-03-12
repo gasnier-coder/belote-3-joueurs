@@ -1,6 +1,6 @@
 {
-  "name": "Belote Expert 3P",
-  "short_name": "Belote3P",
+  "name": "Belote 3 joueurs",
+  "short_name": "Belote3joueurs",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#8f8d91",
