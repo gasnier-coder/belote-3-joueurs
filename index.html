@@ -190,11 +190,11 @@
                                     <div className="flex flex-col flex-1">
                                         <div className="flex items-center gap-2 mb-1">
                                             <button onClick={(e) => {e.stopPropagation(); setDonneur(i); annoncer(`Le donneur est ${joueurs[i]}`)}} 
-                                                className={`text-[8px] font-black uppercase px-5 py-2 rounded-full ${donneur === i ? 'bg-white text-black' : 'bg-black/40 text-white/40 border border-white/10'}`}>
+                                                className={`text-[13px] font-black uppercase px-5 py-2 rounded-full ${donneur === i ? 'bg-white text-black' : 'bg-black/40 text-white/40 border border-white/10'}`}>
                                                 Donneur {donneur === i && "🎴"}
                                             </button>
                                             <button onClick={(e) => {e.stopPropagation(); togglePreneur(i)}} 
-                                                className={`text-[9px] font-black uppercase px-5 py-2 rounded-md border-2 transition-all ${preneur === i ? 'bg-white text-black border-white scale-105 shadow-md' : 'text-white/40 border-white/20'}`}>
+                                                className={`text-11px] font-black uppercase px-5 py-1.5 rounded-md border-2 transition-all ${preneur === i ? 'bg-white text-black border-white scale-105 shadow-md' : 'text-white/40 border-white/20'}`}>
                                                 {preneur === i ? "PRENEUR ✔" : "PRENEUR"}
                                             </button>
                                         </div>
