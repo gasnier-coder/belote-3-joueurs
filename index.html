@@ -166,8 +166,6 @@
             return (
                 <div className="main-container max-w-md mx-auto flex flex-col p-2 tracking-tight overflow-hidden">
                     <div className="flex justify-between items-center px-2 mb-1 shrink-0">
-					  <button onClick={() => {if(confirm('Nouvelle partie ?')) { setScores([0,0,0]); setTour(1); setInputPoints(['','','']); setAtout(null); setPreneur(null); setModified([]); setHistorique([]); }}}
-                        className="text-white/40 text-[16px] font-bold text-center py-1 uppercase shrink-0">Nouvelle Partie</button>
                         <span className="text-[10px] font-black bg-black/60 px-3 py-1 rounded-full uppercase text-white">
                             {tour === 12 ? "Dernier tour" : `Tour ${tour} / 12`}
                         </span>
@@ -238,7 +236,8 @@
                         </div>
                     </div>
 
-                  
+                    <button onClick={() => {if(confirm('Nouvelle partie ?')) { setScores([0,0,0]); setTour(1); setInputPoints(['','','']); setAtout(null); setPreneur(null); setModified([]); setHistorique([]); }}}
+                        className="text-white/40 text-[8px] font-bold text-center py-1 uppercase shrink-0">Nouvelle Partie</button>
                 </div>
             );
         }
