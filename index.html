@@ -20,7 +20,36 @@
     });
   }
 </script>
+<!-- Bloc Logo Universel (Sans contour) -->
+<div class="app-universal-logo">
+  <img src="https://github.com/gasnier-coder/belote-3-joueurs/blob/main/LOGOGASNIERTECHROND3.gif?raw=true" alt="Logo de l'application">
+</div>
 
+<style>
+  .app-universal-logo {
+    /* Positionnement fixe toujours en haut à gauche */
+    position: fixed;
+    top: 20px;
+   left: 100px;
+    z-index: 9999;
+    
+    /* Douce transition au survol */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .app-universal-logo img {
+    display: block;
+    height: 250px; /* Taille du logo */
+    width: auto;   /* Conserve les proportions */
+    object-fit: contain;
+  }
+
+  /* Effet au survol (optionnel) */
+  .app-universal-logo:hover {
+    transform: scale(1.05);
+    opacity: 0.8; /* Devient légèrement transparent au survol */
+  }
+</style>
     <style>
         :root { --sat: env(safe-area-inset-top); --sab: env(safe-area-inset-bottom); }
         body { height: 100dvh; background-color: #8f8d91; }
