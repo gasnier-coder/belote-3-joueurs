@@ -11,67 +11,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="manifest" href="manifest.json?v=2">
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(reg => console.log('PWA prête !'))
-        .catch(err => console.error('Erreur PWA :', err));
-    });
-  }
-</script>
-<!-- Bloc Logo Universel (Sans contour) -->
-<div class="app-universal-logo">
-  <img src="https://github.com/gasnier-coder/belote-3-joueurs/blob/main/LOGOGASNIERTECHROND3.gif?raw=true" alt="Logo de l'application">
-</div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('PWA prête !'))
+            .catch(err => console.error('Erreur PWA :', err));
+        });
+      }
+    </script>
 
-<style>
-  .app-universal-logo {
-    /* Positionnement fixe toujours en haut à gauche */
-    position: fixed;
-    top: 20px;
-   left: 100px;
-    z-index: 9999;
-    
-    /* Douce transition au survol */
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .app-universal-logo img {
-    display: block;
-    height: 250px; /* Taille du logo */
-    width: auto;   /* Conserve les proportions */
-    object-fit: contain;
-  }
-
-  /* Effet au survol (optionnel) */
-  .app-universal-logo:hover {
-    transform: scale(1.05);
-    opacity: 0.8; /* Devient légèrement transparent au survol */
-  }
-  /* --- CONFIGURATION DU LOGO UNIQUE --- */
-.logo-custom {
-    position: absolute;
-    top: 40px;   /* Ajuste si besoin selon l'appli */
-    left: 150px; /* Ajuste si besoin selon l'appli */
-    width: 150px;
-    z-index: 10;
-}
-
-/* Masquage automatique sur tablette et mobile (écran inférieur à 992px) */
-@media (max-width: 992px) {
-    .logo-custom {
-        display: none !important;
-    }
-}
-</style> <style>
+    <style>
         /* Les styles spécifiques pour l'affichage plein écran */
         :root { --sat: env(safe-area-inset-top); --sab: env(safe-area-inset-bottom); }
         body { height: 100dvh; background-color: #8f8d91; }
         .main-container { height: 100dvh; padding-top: var(--sat); padding-bottom: var(--sab); background-color: #8f8d91; }
         .input-blanc { color: white !important; }
         
-        /* On oublie pas le style de notre logo custom */
+        /* Style unique pour notre logo custom sur PC */
         .logo-custom {
             position: absolute;
             top: 40px;
@@ -79,8 +36,12 @@
             width: 150px;
             z-index: 10;
         }
+
+        /* Masquage automatique absolu sur tablette et mobile */
         @media (max-width: 992px) {
-            .logo-custom { display: none !important; }
+            .logo-custom { 
+                display: none !important; 
+            }
         }
     </style>
 </head>
