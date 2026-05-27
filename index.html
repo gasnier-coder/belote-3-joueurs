@@ -49,18 +49,49 @@
     transform: scale(1.05);
     opacity: 0.8; /* Devient légèrement transparent au survol */
   }
-</style>
-    <style>
+  /* --- CONFIGURATION DU LOGO UNIQUE --- */
+.logo-custom {
+    position: absolute;
+    top: 40px;   /* Ajuste si besoin selon l'appli */
+    left: 150px; /* Ajuste si besoin selon l'appli */
+    width: 150px;
+    z-index: 10;
+}
+
+/* Masquage automatique sur tablette et mobile (écran inférieur à 992px) */
+@media (max-width: 992px) {
+    .logo-custom {
+        display: none !important;
+    }
+}
+</style> <style>
+        /* Les styles spécifiques pour l'affichage plein écran */
         :root { --sat: env(safe-area-inset-top); --sab: env(safe-area-inset-bottom); }
         body { height: 100dvh; background-color: #8f8d91; }
         .main-container { height: 100dvh; padding-top: var(--sat); padding-bottom: var(--sab); background-color: #8f8d91; }
         .input-blanc { color: white !important; }
+        
+        /* On oublie pas le style de notre logo custom */
+        .logo-custom {
+            position: absolute;
+            top: 40px;
+            left: 150px;
+            width: 150px;
+            z-index: 10;
+        }
+        @media (max-width: 992px) {
+            .logo-custom { display: none !important; }
+        }
     </style>
 </head>
-<body class="text-white font-sans overflow-hidden select-none">
-    <div id="root"></div>
 
-    <script type="text/babel">
+<body class="text-white font-sans overflow-hidden select-none">
+    
+    <img src="https://github.com/gasnier-coder/belote-3-joueurs/blob/main/LOGOGASNIERTECHROND3.gif?raw=true" class="logo-custom" alt="Logo Gasnier Tech">
+
+    <div class="main-container">
+        <div id="root"></div>
+    </div> <script type="text/babel">
         const { useState, useEffect } = React;
 
         const Icone = ({ type, color }) => {
@@ -71,7 +102,6 @@
                 </span>
             );
         };
-
         function App() {
             const [joueurs, setJoueurs] = useState(() => JSON.parse(localStorage.getItem('b3_noms')) || ["Joueur 1", "Joueur 2", "Joueur 3"]);
             const [scores, setScores] = useState(() => JSON.parse(localStorage.getItem('b3_scores')) || [0, 0, 0]);

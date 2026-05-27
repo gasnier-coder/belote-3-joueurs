@@ -1,4 +1,4 @@
-const CACHE_NAME = 'belote3-v1';
+const CACHE_NAME = 'belote3-v5';
 const ASSETS = [
   './',
   './index.html',
